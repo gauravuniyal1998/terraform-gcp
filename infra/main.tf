@@ -14,10 +14,11 @@ resource "google_storage_bucket" "website" {
 }
 
 # Make the bucket publicly accessible
-resource "google_storage_bucket_iam_member" "public_access" {
+resource "google_storage_object_access_control" "public_rule" {
   bucket = google_storage_bucket.website.name
-  role   = "roles/storage.objectViewer"
-  member = "allUsers"
+  object = google_storage_bucket_object.static_site_src.name
+  role   = "READER"
+  entity = "allUsers"
 }
 
 #upload index.html to the bucket
