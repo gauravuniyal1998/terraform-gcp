@@ -16,3 +16,8 @@ variable "gcp_region" {
     type        = string
     default     = "asia-south2"
 }
+variable "static_site_index_path" {
+    description = "../website/index.html"
+    type        = string
+    default     = "index.html"
+}
