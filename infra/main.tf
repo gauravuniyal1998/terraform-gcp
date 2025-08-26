@@ -16,7 +16,7 @@ resource "google_storage_bucket" "website" {
     not_found_page   = "404.html"
   }
 
-  uniform_bucket_level_access = true
+  uniform_bucket_level_access = false
   
 }
 
