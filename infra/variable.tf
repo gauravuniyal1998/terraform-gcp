@@ -17,9 +17,7 @@ variable "gcp_region" {
     default     = "asia-south2"
 }
 variable "static_site_index_path" {
-    description = "../website/index.html"
-    source      = "../website/index.html"
-    type        = string
+    description = "Path to the index.html file for the static website"
     default     = "index.html"
 }
 
