@@ -1,11 +1,8 @@
 #adding the GCP provider
-terraform { 
-  required_providers {
-    google = {
-      source  = "hashicorp/google"
-      version = ">= 5.0"
-    }
-  }
+provider "google" {
+  credentials = file("../terraform_key.json")
+  project     = var.gcp_project_id
+  region      = var.gcp_region  
 }
 
 #bucket to store website files
@@ -35,7 +32,7 @@ resource "google_storage_object_access_control" "public_rule" {
 resource "google_storage_bucket_object" "static_site_src" {
   name   = "index.html"
   bucket = google_storage_bucket.website.name
-  source = var.static_site_index_path
+  source = "../website/index.html"
   content_type = "text/html" 
   
 }
