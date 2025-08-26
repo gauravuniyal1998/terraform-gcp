@@ -1,3 +1,13 @@
+#adding the GCP provider
+terraform { 
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = ">= 5.0"
+    }
+  }
+}
+
 #bucket to store website files
 
 resource "google_storage_bucket" "website" {
@@ -29,4 +39,6 @@ resource "google_storage_bucket_object" "static_site_src" {
   content_type = "text/html" 
   
 }
+
+
 
