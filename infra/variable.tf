@@ -18,6 +18,14 @@ variable "gcp_region" {
 }
 variable "static_site_index_path" {
     description = "../website/index.html"
+    source      = "../website/index.html"
     type        = string
     default     = "index.html"
+}
+
+variable "bucket_name" {
+    description = "The name of the GCS bucket to create"
+    type        = string
+    default     = ""  # Change this to a globally unique name
+  
 }
